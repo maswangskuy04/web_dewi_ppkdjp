@@ -8,12 +8,11 @@ use App\Http\Controllers\LevelsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PesertaPelatihanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', WelcomeController::class);
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('action-login', [LoginController::class, 'actionLogin'])->name('action-login');

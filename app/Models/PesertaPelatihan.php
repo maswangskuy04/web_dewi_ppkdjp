@@ -25,4 +25,11 @@ class PesertaPelatihan extends Model
         'aktivitas_saat_ini',
         'status',
     ];
+
+    public function jurusans(){
+        return $this->belongsTo(Jurusan::class, 'id_jurusan');
+    }
+    public function gelombangs() {
+        return $this->belongsTo(Gelombang::class, 'id_gelombang');
+    }
 }

@@ -31,11 +31,9 @@ class GelombangController extends Controller
     {
         $request->validate([
             'nama_gelombang' => 'required|string',
-            'aktif' => 'required|string',
         ]);
         Gelombang::create([
             'nama_gelombang' =>$request->nama_gelombang,
-            'aktif' =>$request->aktif,
         ]);
         return redirect()->route('gelombang.index')->with('message', 'Data Berhasil Ditambahkan');
     }
@@ -64,11 +62,9 @@ class GelombangController extends Controller
     {
         $request->validate([
             'nama_gelombang' => 'required|string',
-            'aktif' => 'required|string',
         ]);
         Gelombang::create([
-            'nama_gelombang' =>$request->nama_gelombang,
-            'aktif' =>$request->aktif,
+            'nama_gelombang' => $request->nama_gelombang,
         ]);
         return redirect()->route('gelombang.index')->with('message', 'Data Berhasil Diupdate');
     }

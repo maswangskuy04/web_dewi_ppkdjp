@@ -12,13 +12,6 @@
                         <input type="text" name="nama_gelombang" id="nama_gelombang" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label class="py-3">Status</label>
-                        <select name="" id="" class="form-select">
-                            <option value="1">Aktif</option>
-                            <option value="0">Tidak Aktif</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <button type="submit" class="btn btn-outline-primary btn-sm">Simpan</button>
                         <a href="{{ url('gelombang.index') }}" class="btn btn-outline-danger btn-sm">Back</a>
                     </div>

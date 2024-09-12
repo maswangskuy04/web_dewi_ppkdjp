@@ -89,6 +89,24 @@
         <h2 class="form-title">Data Calon Peserta</h2>
         <form action="/submit" method="POST">
             <div class="mb-3">
+                <label for="id_jurusan" class="form-label">Jurusan</label>
+                <select name="id_jurusan" id="" class="form-select">
+                    <option value="">Pilih Jurusan</option>
+                    @foreach ($jurusans as $jurusan)
+                        <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="id_gelombang" class="form-label">Gelombang</label>
+                <select name="id_gelombang" id="" class="form-select">
+                    <option value="">Pilih Gelombang</option>
+                    @foreach ($gelombangs as $gelombang)
+                        <option value="{{ $gelombang->id }}">{{ $gelombang->nama_gelombang }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
