@@ -1,16 +1,16 @@
 @extends('layouts.app')
-
 @section('title', 'users')
-
 @section('content')
+
     @if (session('message'))
         <div class="alert alert-success">
             {{ session('message') }}
         </div>
     @endif
+
     <div class="card">
         <div class="card-body">
-            <a href="{{ route('user.create') }}" class="btn btn-outline-primary btn-sm mb-2">Tambah User</a>
+            <a href="{{ route('user.create') }}" class="btn btn-outline-primary btn-sm mb-3">Tambah User</a>
             <div class="table table-responsive">
                 <table class="table table-bordered text-center">
                     <thead>

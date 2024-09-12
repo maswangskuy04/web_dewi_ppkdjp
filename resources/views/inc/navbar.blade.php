@@ -57,7 +57,8 @@
                                 <div class="notif-center">
                                     <a href="#">
                                         <div class="notif-img">
-                                            <img src="{{ asset('template/assets/img/jm_denis.jpg') }}" alt="Img Profile" />
+                                            <img src="{{ asset('template/assets/img/jm_denis.jpg') }}"
+                                                alt="Img Profile" />
                                         </div>
                                         <div class="notif-content">
                                             <span class="subject">Jimmy Denis</span>
@@ -67,7 +68,8 @@
                                     </a>
                                     <a href="#">
                                         <div class="notif-img">
-                                            <img src="{{ asset('template/assets/img/chadengle.jpg') }}" alt="Img Profile" />
+                                            <img src="{{ asset('template/assets/img/chadengle.jpg') }}"
+                                                alt="Img Profile" />
                                         </div>
                                         <div class="notif-content">
                                             <span class="subject">Chad</span>
@@ -144,7 +146,8 @@
                                     </a>
                                     <a href="#">
                                         <div class="notif-img">
-                                            <img src="{{ asset('template/assets/img/profile2.jpg') }}" alt="Img Profile" />
+                                            <img src="{{ asset('template/assets/img/profile2.jpg') }}"
+                                                alt="Img Profile" />
                                         </div>
                                         <div class="notif-content">
                                             <span class="block">
@@ -242,7 +245,8 @@
                     <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#"
                         aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="{{ asset('template/assets/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle" />
+                            <img src="{{ asset('template/assets/img/profile.jpg') }}" alt="..."
+                                class="avatar-img rounded-circle" />
                         </div>
                         <span class="profile-username">
                             <span class="op-7">Hi,</span>
@@ -273,10 +277,12 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <form action="{{ route('logout') }}" method="post" style="display: none" id="form-logout">
+                                <form action="{{ route('logout') }}" method="post" style="display: none"
+                                    id="form-logout">
                                     @csrf
                                 </form>
-                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
                             </li>
                         </div>
                     </ul>

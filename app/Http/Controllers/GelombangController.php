@@ -12,7 +12,8 @@ class GelombangController extends Controller
      */
     public function index()
     {
-        //
+        $gelombang = Gelombang::all();
+        return view('admin.gelombang.index', compact('gelombang'));
     }
 
     /**
@@ -20,7 +21,7 @@ class GelombangController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.gelombang.create');
     }
 
     /**
@@ -28,7 +29,15 @@ class GelombangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_gelombang' => 'required|string',
+            'aktif' => 'required|string',
+        ]);
+        Gelombang::create([
+            'nama_gelombang' =>$request->nama_gelombang,
+            'aktif' =>$request->aktif,
+        ]);
+        return redirect()->route('gelombang.index')->with('message', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -42,23 +51,32 @@ class GelombangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Gelombang $gelombang)
+    public function edit(String $id)
     {
-        //
+        $edit = Gelombang::findOrFail($id);
+        return view('admin.gelombang.edit', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gelombang $gelombang)
+    public function update(Request $request, String $id)
     {
-        //
+        $request->validate([
+            'nama_gelombang' => 'required|string',
+            'aktif' => 'required|string',
+        ]);
+        Gelombang::create([
+            'nama_gelombang' =>$request->nama_gelombang,
+            'aktif' =>$request->aktif,
+        ]);
+        return redirect()->route('gelombang.index')->with('message', 'Data Berhasil Diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Gelombang $gelombang)
+    public function destroy(String $id)
     {
         //
     }

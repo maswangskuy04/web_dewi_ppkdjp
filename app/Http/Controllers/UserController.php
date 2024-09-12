@@ -63,7 +63,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $edit = User::findOrFail($id);
+        return view('admin.user.edit', compact('edit'));
     }
 
     /**
@@ -71,7 +72,21 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'id_level' => 'required',
+            'nama_lengkap' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8'
+        ]);
+
+        User::create([
+            'id_level' => $request->id_level,
+            'nama_lengkap' => $request->nama_lengkap,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+
+        return redirect()->route('user.index')->with('message', 'Data User berhasil ditambah!');
     }
 
     /**

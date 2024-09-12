@@ -1,11 +1,13 @@
 @extends('layouts.app')
 @section('title', 'Level')
 @section('content')
+
     @if (session('message'))
         <div class="alert alert-success">
             {{ session('message') }}
         </div>
     @endif
+
     <div class="card">
         <div class="card-body">
             <a href="{{ route('level.create') }}" class="btn btn-outline-primary mb-2">Tambah</a>
@@ -14,7 +16,7 @@
                     <thead>
                         <tr>
                             <th class="col-1">No</th>
-                            <th>Nama level</th>
+                            <th>Nama Level</th>
                             <th class="col-2">Aksi</th>
                         </tr>
                     </thead>
