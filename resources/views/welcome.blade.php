@@ -87,7 +87,8 @@
 <body>
     <div class="container">
         <h2 class="form-title">Data Calon Peserta</h2>
-        <form action="/submit" method="POST">
+        <form action="{{route('store')}}" method="POST">
+            @csrf
             <div class="mb-3">
                 <label for="id_jurusan" class="form-label">Jurusan</label>
                 <select name="id_jurusan" id="" class="form-select">
@@ -108,7 +109,7 @@
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name_lengkap" name="name_lengkap" required>
             </div>
 
             <div class="mb-3">
@@ -177,7 +178,7 @@
 <body>
     <div class="container">
         <h2 class="form-title">Pilih Jurusanmu!!</h2>
-        <form action="/submit" method="POST">
+        <form action="{{route('store')}}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="program" class="form-label">Program Pilihan</label>
@@ -270,8 +271,9 @@
 
 <body>
     <div class="container">
-        <h2 class="form-title">Pilih Jurusan!!</h2>
-        <form action="/submit" method="POST">
+        <h2 class="form-title">Gelombang</h2>
+        <form action="{{route('store')}}" method="POST">
+            @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Angkatan 3 2024</label>
             </div>
