@@ -32,23 +32,23 @@ class WelcomeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'id_jurusan' => 'required',
-            'id_gelombang' => 'required',
-            'nama_lengkap' => 'required|string',
-            'nik' => 'required|string',
-            'kartu_keluarga' => 'required|string',
-            'jenis_kelamin' => 'required|string',
-            'tempat_lahir' => 'required|string',
-            'tanggal_lahir' => 'required|string',
-            'pendidikan_terakhir' => 'required|string',
-            'nama_sekolah' => 'required|string',
-            'kejuruan' => 'required|string',
-            'nomor_hp' => 'required|string',
-            'email' => 'required|email',
-            'aktivitas_saat_ini' => 'required|string',
-            'status' => 'required|string',
-        ]);
+        // $request->validate([
+        //     'id_jurusan' => 'required',
+        //     'id_gelombang' => 'required',
+        //     'nama_lengkap' => 'required|string',
+        //     'nik' => 'required|string',
+        //     'kartu_keluarga' => 'required|string',
+        //     'jenis_kelamin' => 'required|string',
+        //     'tempat_lahir' => 'required|string',
+        //     'tanggal_lahir' => 'required|string',
+        //     'pendidikan_terakhir' => 'required|string',
+        //     'nama_sekolah' => 'required|string',
+        //     'kejuruan' => 'required|string',
+        //     'nomor_hp' => 'required|string',
+        //     'email' => 'required|email',
+        //     'aktivitas_saat_ini' => 'required|string',
+        //     'status' => 'required|string',
+        // ]);
 
         PesertaPelatihan::create([
             'id_jurusan' => $request->id_jurusan,
@@ -68,7 +68,7 @@ class WelcomeController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('welcome')->with('message', 'Data Peserta Berhasil Ditambahkan');
+        return redirect()->back()->with('message', 'Data Peserta Berhasil Ditambahkan');
     }
 
     /**

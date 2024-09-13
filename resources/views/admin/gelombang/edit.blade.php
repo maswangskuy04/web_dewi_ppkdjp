@@ -18,7 +18,7 @@
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-outline-primary btn-sm">Perbarui</button>
-                    <a href="{{ url('gelombang.index') }}" class="btn btn-outline-danger btn-sm">Back</a>
+                    <a href="{{ route('gelombang.index') }}" class="btn btn-outline-danger btn-sm">Back</a>
                 </div>
             </form>
         </div>

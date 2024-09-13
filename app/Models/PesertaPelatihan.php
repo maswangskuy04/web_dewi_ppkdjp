@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PesertaPelatihan extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'id_jurusan',
         'id_gelombang',
@@ -24,6 +25,7 @@ class PesertaPelatihan extends Model
         'email',
         'aktivitas_saat_ini',
         'status',
+        'deleted_at'
     ];
 
     public function jurusans(){

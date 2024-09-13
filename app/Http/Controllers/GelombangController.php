@@ -74,6 +74,15 @@ class GelombangController extends Controller
      */
     public function destroy(String $id)
     {
-        //
+        $gelombang = Gelombang::findOrFail($id);
+        $gelombang->delete();
+
+        return redirect()->route('gelombang.index')->with('message', 'Data Gelombang berhasil dihapus sementara');
     }
+
+    // public function trash()
+    // {
+    //     $gelombang = Gelombang::onlyTrashed()->get();
+    //     return view('admin.gelombang.recovery', compact('gelombang'));
+    // }
 }

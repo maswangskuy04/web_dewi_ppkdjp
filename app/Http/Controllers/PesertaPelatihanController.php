@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PesertaPelatihan;
 use App\Models\Jurusan;
 use App\Models\Gelombang;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PesertaPelatihanController extends Controller
@@ -66,6 +67,8 @@ class PesertaPelatihanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pelatihan = PesertaPelatihan::findOrFail($id);
+        $pelatihan->delete();
+        return redirect()->route('peserta-pelatihan.index')->with('message', 'Data berhasil dihapus sementara!');
     }
 }

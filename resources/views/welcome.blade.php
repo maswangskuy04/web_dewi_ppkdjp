@@ -85,9 +85,9 @@
 </body>
 
 <body>
-    <div class="container">
+    <div class="container mb-3">
         <h2 class="form-title">Data Calon Peserta</h2>
-        <form action="{{route('store')}}" method="POST">
+        <form action="{{ route('store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="id_jurusan" class="form-label">Jurusan</label>
@@ -109,173 +109,70 @@
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name_lengkap" name="name_lengkap" required>
+                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">NIK(Nomor Induk Keluarga)</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <label for="nik" class="form-label">NIK(Nomor Induk Keluarga)</label>
+                <input type="nik" class="form-control" id="nik" name="nik" required>
             </div>
 
             <div class="mb-3">
-                <label for="phone" class="form-label">Kartu Keluarga</label>
-                <input type="text" class="form-control" id="phone" name="phone" required>
+                <label for="kartu_keluarga" class="form-label">Kartu Keluarga</label>
+                <input type="text" class="form-control" id="kartu_keluarga" name="kartu_keluarga" required>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Jenis Kelamin</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                <textarea class="form-control" id="jenis_kelamin" name="jenis_kelamin" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Tempat Lahir</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                <textarea class="form-control" id="tempat_lahir" name="tempat_lahir" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Tanggal Lahir</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Pendidikan Terakhir</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir</label>
+                <textarea class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Nama Sekolah</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
+                <textarea class="form-control" id="nama_sekolah" name="nama_sekolah" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Jurusan</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="jurusan" class="form-label">Jurusan</label>
+                <textarea class="form-control" id="kejuruan" name="kejuruan" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Nomor HP</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="nomor_hp" class="form-label">Nomor HP</label>
+                <textarea class="form-control" id="nomor_hp" name="nomor_hp" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Email</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="email" class="form-label">Email</label>
+                <textarea class="form-control" id="email" name="email" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Aktivitas Saat Ini</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <label for="aktivitas_saat_ini" class="form-label">Aktivitas Saat Ini</label>
+                <textarea class="form-control" id="aktivitas_saat_ini" name="aktivitas_saat_ini" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="address" class="form-label">Status</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
-            </div>
-        </form>
-    </div>
-</body>
-
-<body>
-    <div class="container">
-        <h2 class="form-title">Pilih Jurusanmu!!</h2>
-        <form action="{{route('store')}}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="program" class="form-label">Program Pilihan</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program1" value="program-1"
-                        required>
-                    <label class="form-check-label" for="program1">Operator Komputer</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program2" value="program-2"
-                        required>
-                    <label class="form-check-label" for="program2">Bahasa Inggris</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program3" value="program-3"
-                        required>
-                    <label class="form-check-label" for="program3">Desain Grafis</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program4" value="program-4"
-                        required>
-                    <label class="form-check-label" for="program4">Tata Boga</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program5" value="program-5"
-                        required>
-                    <label class="form-check-label" for="program5">Tata Busana</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program6" value="program-6"
-                        required>
-                    <label class="form-check-label" for="program6">Tata Graha</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program7" value="program-7"
-                        required>
-                    <label class="form-check-label" for="program7">Teknik Pendingin</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program8" value="program-8"
-                        required>
-                    <label class="form-check-label" for="program8">Teknik Komputer</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program9" value="program-9"
-                        required>
-                    <label class="form-check-label" for="program9">Otomotif Sepeda Motor</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program10" value="program-10"
-                        required>
-                    <label class="form-check-label" for="program10">Jaringan Komputer</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program11" value="program-11"
-                        required>
-                    <label class="form-check-label" for="program11">Barista</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program12" value="program-12"
-                        required>
-                    <label class="form-check-label" for="program12">Bahasa Korea</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program13" value="program-13"
-                        required>
-                    <label class="form-check-label" for="program13">Video Editor</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program14" value="program-14"
-                        required>
-                    <label class="form-check-label" for="program14">Content Creator</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program15" value="program-15"
-                        required>
-                    <label class="form-check-label" for="program15">Make Up Artist</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="program" id="program15" value="program-15"
-                        required>
-                    <label class="form-check-label" for="program16">Web ProgrammingWeb Programming</label>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-<body>
-    <div class="container">
-        <h2 class="form-title">Gelombang</h2>
-        <form action="{{route('store')}}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="email" class="form-label">Angkatan 3 2024</label>
+                <label for="status" class="form-label">Status</label>
+                <select name="status" id="" class="form-select">
+                    <option value="0">Aktif</option>
+                    <option value="1">Tidak Aktif</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary w-100">Kirim</button>
         </form>

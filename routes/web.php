@@ -28,4 +28,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('/jurusan', JurusanController::class);
     Route::resource('/peserta-pelatihan', PesertaPelatihanController::class);
     Route::resource('/gelombang', GelombangController::class);
+    Route::get('/gelombang/trash', [GelombangController::class, 'trash'])->name('trash');
+    // Route::get('/gelombang/recovery/{$id}', [GelombangController::class, 'recovery'])->name('admin.gelombang.recovery');
+    // Route::get('/gelombang/recovery/{$id}', [GelombangController::class, 'recovery'])->name('admin.gelombang.recovery');
+    // Route::get('/gelombang/recovery/{$id}', [GelombangController::class, 'recovery'])->name('admin.gelombang.recovery');
 });

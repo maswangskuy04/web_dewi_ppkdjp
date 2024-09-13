@@ -77,8 +77,10 @@ class JurusanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jurusan $jurusan)
+    public function destroy(String $id)
     {
-        //
+        $jurusan = Jurusan::findOrFail($id);
+        $jurusan->delete();
+        return redirect()->route('jurusan.index')->with('message', 'Data Jurusan berhasil dihapus sementara!');
     }
 }

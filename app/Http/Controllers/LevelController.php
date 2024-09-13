@@ -78,6 +78,8 @@ class LevelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $level = Level::findOrFail($id);
+        $level->delete();
+        return redirect()->route('level.index')->with('message', 'Data Level berhasil dihapus sementara!');
     }
 }
