@@ -166,14 +166,6 @@
                 <label for="aktivitas_saat_ini" class="form-label">Aktivitas Saat Ini</label>
                 <textarea class="form-control" id="aktivitas_saat_ini" name="aktivitas_saat_ini" required></textarea>
             </div>
-
-            <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select name="status" id="" class="form-select">
-                    <option value="0">Aktif</option>
-                    <option value="1">Tidak Aktif</option>
-                </select>
-            </div>
             <button type="submit" class="btn btn-primary w-100">Kirim</button>
         </form>
     </div>

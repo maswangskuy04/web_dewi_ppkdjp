@@ -57,9 +57,6 @@
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input type="radio" name="" id="" value="1" {{ $p->status == 1 ? 'checked' : '' }} class="form-check-input">
-                                        <label for="" class="form-check-label">Aktif</label>
-                                        <input type="radio" name="" id="" value="0" class="form-check-input" {{ $p->status == 0 ? 'checked' : '' }}>
-                                        <label for="" class="form-check-label">Tidak Aktif</label>
                                     </div>
                                 </td>
                                 <td class="justify-content-center"><a href="{{ route('peserta-pelatihan.edit', $p->id) }}"
@@ -84,3 +81,7 @@
     </div>
 
 @endsection
+
+<script>
+    
+</script>

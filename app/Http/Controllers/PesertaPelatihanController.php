@@ -35,7 +35,7 @@ class PesertaPelatihanController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
@@ -70,5 +70,16 @@ class PesertaPelatihanController extends Controller
         $pelatihan = PesertaPelatihan::findOrFail($id);
         $pelatihan->delete();
         return redirect()->route('peserta-pelatihan.index')->with('message', 'Data berhasil dihapus sementara!');
+    }
+
+    public function updateStatus(Request $request) {
+        $peserta = PesertaPelatihan::find($request->id);
+        if($peserta) {
+            $peserta->status = $request->status;
+            $peserta->save();
+            return response()->json(['status' => $peserta->status ? 'aktif' : 'tidak aktif']);
+        } else {
+            return response()->json(['error' => 'Peserta not found'], 404);
+        }
     }
 }

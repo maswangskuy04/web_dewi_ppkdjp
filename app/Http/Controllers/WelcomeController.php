@@ -65,7 +65,6 @@ class WelcomeController extends Controller
             'nomor_hp' => $request->nomor_hp,
             'email' => $request->email,
             'aktivitas_saat_ini' => $request->aktivitas_saat_ini,
-            'status' => $request->status,
         ]);
 
         return redirect()->back()->with('message', 'Data Peserta Berhasil Ditambahkan');
@@ -102,4 +101,6 @@ class WelcomeController extends Controller
     {
         //
     }
+
+    
 }

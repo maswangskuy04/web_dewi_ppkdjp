@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item {{ Request::routeIs('user.index') ? 'active' : '' }}">
                     <a href="{{ route('user.index') }}">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fa-solid fa-person"></i>
                         <p>User</p>
                     </a>
                 </li>
@@ -50,19 +50,19 @@
                 </li>
                 <li class="nav-item {{ Request::routeIs('jurusan.index') ? 'active' : '' }}">
                     <a href="{{ route('jurusan.index') }}">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fa-solid fa-book"></i>
                         <p>Jurusan</p>
                     </a>
                 </li>
                 <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index') ? 'active' : '' }}">
                     <a href="{{ route('peserta-pelatihan.index') }}">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fa-solid fa-people-group"></i>
                         <p>Peserta Pelatihan</p>
                     </a>
                 </li>
                 <li class="nav-item {{ Request::routeIs('gelombang.index') ? 'active' : '' }}">
                     <a href="{{ route('gelombang.index') }}">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fa-solid fa-wave-square"></i>
                         <p>Gelombang</p>
                     </a>
                 </li>
