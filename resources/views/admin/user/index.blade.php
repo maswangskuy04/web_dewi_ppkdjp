@@ -32,8 +32,8 @@
                                 <td>{{ $u->nama_lengkap }}</td>
                                 <td>{{ $u->email }}</td>
                                 <td>{{ $u->level->nama_level }}</td>
-                                <td class="justify-content-center"><a href="{{ route('user.edit', $u->id) }}"
-                                        class="btn btn-success btn-sm">Edit</a>
+                                <td class="justify-content-center">
+                                    <a href="{{ route('user.edit', $u->id) }}" class="btn btn-success btn-sm">Edit</a>
                                     <form class="d-inline" action="{{ route('user.destroy', $u->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')

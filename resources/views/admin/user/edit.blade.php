@@ -5,7 +5,7 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('user.update', $edit->id) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('user.update', $edit->id) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -13,7 +13,7 @@
                         <select name="id_level" id="" class="form-select" required>
                             <option value=""></option>
                             @foreach ($level as $l)
-                                <option value="{{ $l->id }}">{{ $l->nama_level }}</option>
+                                <option value="{{ $l->id }}"{{ $edit->id_level == $l->id ? 'selected' : '' }}>{{ $l->nama_level }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -29,8 +29,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="password" class="py-3">Password</label>
-                        <input type="password" name="password" id="password" class="form-control"
-                            value="{{ $edit->password }}">
+                        <input type="password" name="password" id="password" class="form-control">
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-outline-primary btn-sm">Perbarui</button>

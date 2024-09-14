@@ -43,7 +43,6 @@
 
 <body>
     <div class="container">
-
         <p class="description">
             Pusat Pelatihan Kerja Daerah (PPKD) Jakarta Pusat membuka kembali pelatihan kerja untuk meningkatkan
             kompetensi warga DKI Jakarta agar mampu bersaing di dunia kerja. <br>
@@ -111,60 +110,49 @@
                 <label for="name" class="form-label">Nama Lengkap</label>
                 <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
             </div>
-
             <div class="mb-3">
-                <label for="nik" class="form-label">NIK(Nomor Induk Keluarga)</label>
-                <input type="nik" class="form-control" id="nik" name="nik" required>
+                <label for="nik" class="form-label">NIK</label>
+                <input type="number" class="form-control" id="nik" name="nik" required>
             </div>
-
             <div class="mb-3">
                 <label for="kartu_keluarga" class="form-label">Kartu Keluarga</label>
-                <input type="text" class="form-control" id="kartu_keluarga" name="kartu_keluarga" required>
+                <input type="number" class="form-control" id="kartu_keluarga" name="kartu_keluarga" required>
             </div>
-
             <div class="mb-3">
                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                <textarea class="form-control" id="jenis_kelamin" name="jenis_kelamin" required></textarea>
+                <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
             </div>
-
             <div class="mb-3">
                 <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                <textarea class="form-control" id="tempat_lahir" name="tempat_lahir" required></textarea>
+                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required>
             </div>
-
             <div class="mb-3">
                 <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                 <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
             </div>
-
             <div class="mb-3">
                 <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir</label>
-                <textarea class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir" required></textarea>
+                <input class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir" required>
             </div>
-
             <div class="mb-3">
                 <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
-                <textarea class="form-control" id="nama_sekolah" name="nama_sekolah" required></textarea>
+                <input class="form-control" id="nama_sekolah" name="nama_sekolah" required>
             </div>
-
             <div class="mb-3">
                 <label for="jurusan" class="form-label">Jurusan</label>
-                <textarea class="form-control" id="kejuruan" name="kejuruan" required></textarea>
+                <input class="form-control" id="kejuruan" name="kejuruan" required>
             </div>
-
             <div class="mb-3">
                 <label for="nomor_hp" class="form-label">Nomor HP</label>
-                <textarea class="form-control" id="nomor_hp" name="nomor_hp" required></textarea>
+                <input class="form-control" id="nomor_hp" name="nomor_hp" required>
             </div>
-
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <textarea class="form-control" id="email" name="email" required></textarea>
+                <input class="form-control" id="email" name="email" required>
             </div>
-
             <div class="mb-3">
                 <label for="aktivitas_saat_ini" class="form-label">Aktivitas Saat Ini</label>
-                <textarea class="form-control" id="aktivitas_saat_ini" name="aktivitas_saat_ini" required></textarea>
+                <input class="form-control" id="aktivitas_saat_ini" name="aktivitas_saat_ini" required>
             </div>
             <button type="submit" class="btn btn-primary w-100">Kirim</button>
         </form>

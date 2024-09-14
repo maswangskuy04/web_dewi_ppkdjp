@@ -10,7 +10,7 @@
     @endif
     <div class="card">
         <div class="card-body">
-            <a href="{{ route('jurusan.create') }}" class="btn btn-outline-primary mb-2 btn-sm">Tambah Jurusan</a>
+            <a href="{{ route('jurusan.create') }}" class="btn btn-outline-primary mb-2 btn-sm mb-3">Tambah Jurusan</a>
             <div class="table table-responsive">
                 <table class="table table-bordered text-center">
                     <thead>

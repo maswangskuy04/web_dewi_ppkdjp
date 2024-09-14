@@ -38,6 +38,25 @@ class GelombangController extends Controller
         return redirect()->route('gelombang.index')->with('message', 'Data Berhasil Ditambahkan');
     }
 
+    public function status(Request $request, $id)
+    {
+        $request->validate([
+            'aktif' => 'required'
+        ]);
+
+        try {
+            $gelombang = Gelombang::find($id);
+            $gelombang->aktif = $request->input('aktif');
+            $gelombang->save();
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => $th->getMessage()
+            ]);
+        }
+
+        return response()->json(['success' => true, 'message' => 'Status updated successfully']);
+    }
+
     /**
      * Display the specified resource.
      */
@@ -79,6 +98,9 @@ class GelombangController extends Controller
 
         return redirect()->route('gelombang.index')->with('message', 'Data Gelombang berhasil dihapus sementara');
     }
+
+
+    
 
     // public function trash()
     // {

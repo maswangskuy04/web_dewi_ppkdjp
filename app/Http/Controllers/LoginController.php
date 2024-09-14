@@ -20,7 +20,7 @@ class LoginController extends Controller
         //     'password' => 'password|required|min:8'
         // ]);
 
-        $credential = $request->only('email', 'password');
+        $credential = $request->only(['email', 'password']);
 
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();

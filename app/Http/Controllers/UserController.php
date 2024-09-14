@@ -63,8 +63,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
+        $level = Level::get();
         $edit = User::findOrFail($id);
-        return view('admin.user.edit', compact('edit'));
+        return view('admin.user.edit', compact('edit', 'level'));
     }
 
     /**
@@ -72,21 +73,23 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'id_level' => 'required',
-            'nama_lengkap' => 'required|string',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8'
-        ]);
+        $user = User::find($id);
 
-        User::create([
+        // $request->validate([
+        //     'id_level' => 'required',
+        //     'nama_lengkap' => 'required|string',
+        //     'email' => 'required|email|unique:users',
+        //     'password' => 'nullable|min:8'
+        // ]);
+
+        $user->update([
             'id_level' => $request->id_level,
             'nama_lengkap' => $request->nama_lengkap,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => $request->password
         ]);
 
-        return redirect()->route('user.index')->with('message', 'Data User berhasil ditambah!');
+        return redirect()->route('user.index')->with('message', 'Data User berhasil diperbarui!');
     }
 
     /**

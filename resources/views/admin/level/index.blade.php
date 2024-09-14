@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            <a href="{{ route('level.create') }}" class="btn btn-outline-primary mb-2 btn-sm">Tambah Level</a>
+            <a href="{{ route('level.create') }}" class="btn btn-outline-primary mb-2 btn-sm mb-3">Tambah Level</a>
             <div class="table table-responsive">
                 <table class="table table-bordered text-center">
                     <thead>
