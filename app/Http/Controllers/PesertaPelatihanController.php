@@ -44,7 +44,8 @@ use Illuminate\Http\Request;
      */
     public function show(string $id)
     {
-        //
+        $peserta = PesertaPelatihan::findOrFail($id);
+        return view('admin.peserta-pelatihan.detail', compact('peserta'));
     }
 
     /**

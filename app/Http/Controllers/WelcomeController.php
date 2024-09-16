@@ -16,7 +16,7 @@ class WelcomeController extends Controller
     {
         $jurusans = Jurusan::get();
         $gelombangs = Gelombang::get();
-        return view('welcome', compact('jurusans','gelombangs'));
+        return view('welcome', compact('jurusans', 'gelombangs'));
     }
 
     /**
@@ -98,6 +98,4 @@ class WelcomeController extends Controller
     {
         //
     }
-
-
 }

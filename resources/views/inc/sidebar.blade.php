@@ -36,6 +36,7 @@
                     </span>
                     <h4 class="text-section">Master Data</h4>
                 </li>
+                @if (Auth::user()->id_level == 1)
                 <li class="nav-item {{ Request::routeIs('user.index') ? 'active' : '' }}">
                     <a href="{{ route('user.index') }}">
                         <i class="fa-solid fa-person"></i>
@@ -66,6 +67,33 @@
                         <p>Gelombang</p>
                     </a>
                 </li>
+                @elseif (Auth::user()->id_level == 2)
+                <li class="nav-item {{ Request::routeIs('jurusan.index') ? 'active' : '' }}">
+                    <a href="{{ route('jurusan.index') }}">
+                        <i class="fa-solid fa-book"></i>
+                        <p>Jurusan</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index') ? 'active' : '' }}">
+                    <a href="{{ route('peserta-pelatihan.index') }}">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Peserta Pelatihan</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::routeIs('gelombang.index') ? 'active' : '' }}">
+                    <a href="{{ route('gelombang.index') }}">
+                        <i class="fa-solid fa-wave-square"></i>
+                        <p>Gelombang</p>
+                    </a>
+                </li>
+                @else
+                <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index') ? 'active' : '' }}">
+                    <a href="{{ route('peserta-pelatihan.index') }}">
+                        <i class="fa-solid fa-people-group"></i>
+                        <p>Peserta Pelatihan</p>
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

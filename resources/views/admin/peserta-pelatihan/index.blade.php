@@ -45,12 +45,10 @@
                                 </td>
                                 <td>
                                     <span class="d-flex justify-content-center">
-                                        <a href="" class="btn btn-warning btn-sm">Detail</a>
+                                        <a href="{{ route('peserta-pelatihan.show', $p->id) }}" class="btn btn-warning btn-sm">Detail</a>
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="{{ route('peserta-pelatihan.edit', $p->id) }}"
-                                        class="btn btn-success btn-sm">Edit</a>
                                     <form class="d-inline" action="{{ route('peserta-pelatihan.destroy', $p->id) }}"
                                         method="post">
                                         @csrf
@@ -91,13 +89,7 @@
                 })
                 .then(res => res.json())
                 .then(data => {
-                    if(data.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Wokeeh',
-                            text: 'Status sudah diperbarui'
-                        })
-                    }
+                    console.log(data);
                 })
             })
         })
