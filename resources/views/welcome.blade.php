@@ -37,6 +37,9 @@
 <body>
     <div class="container">
         <h2 class="form-title">Pendaftaran Calon Peserta</h2>
+        @if (session('message'))
+        <div class="alert alert-success">{{ session('message') }}</div>
+        @endif
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
@@ -120,7 +123,11 @@
             </div>
             <div class="mb-3">
                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                <select name="jenis_kelamin" class="form-select">
+                    <option value="">-- Pilih Jenis Kelamin --</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
@@ -132,23 +139,19 @@
             </div>
             <div class="mb-3">
                 <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir</label>
-                <input class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir" required>
+                <input type="text" class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir" required>
             </div>
             <div class="mb-3">
                 <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
-                <input class="form-control" id="nama_sekolah" name="nama_sekolah" required>
-            </div>
-            <div class="mb-3">
-                <label for="jurusan" class="form-label">Jurusan</label>
-                <input class="form-control" id="kejuruan" name="kejuruan" required>
+                <input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah" required>
             </div>
             <div class="mb-3">
                 <label for="nomor_hp" class="form-label">Nomor HP</label>
-                <input class="form-control" id="nomor_hp" name="nomor_hp" required>
+                <input type="number" class="form-control" id="nomor_hp" name="nomor_hp" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
                 <label for="aktivitas_saat_ini" class="form-label">Aktivitas Saat Ini</label>

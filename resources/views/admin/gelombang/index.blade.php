@@ -11,7 +11,6 @@
     <div class="card">
         <div class="card-body">
             <a href="{{ route('gelombang.create') }}" class="btn btn-outline-primary mb-2 btn-sm mb-3">Tambah Gelombang</a>
-            <a href="#" class="btn btn-outline-info mb-2 btn-sm">Recovery</a>
             <div class="table table-responsive">
                 <table class="table table-bordered text-center">
                     <thead>
@@ -31,15 +30,9 @@
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $gelo->nama_gelombang }}</td>
                                 <td>
-                                    <input type="radio" name="aktif_{{ $gelo->id }}"
-                                        id="gelombangAktif_{{ $gelo->id }}" data-id="{{ $gelo->id }}" value="1"
-                                        class="updateStatus">
-                                    <input type="radio" name="aktif_{{ $gelo->id }}"
-                                        id="gelombangTidakAktif_{{ $gelo->id }}" data-id="{{ $gelo->id }}"
-                                        value="0" class="updateStatus">
+                                    <input type="radio" name="status" id="" class="status-radio"
+                                        data-id="{{ $gelo->id }}" {{ $gelo->status == 1 ? 'checked' : '' }}>
                                 </td>
-
-
                                 <td class="justify-content-center">
                                     <a href="{{ route('gelombang.edit', $gelo->id) }}"
                                         class="btn btn-success btn-sm">Edit</a>
@@ -64,29 +57,51 @@
 
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('.updateStatus').on('change', function() {
-                var itemId = $(this).data('id');
-                var selected = $(this).val();
-                console.log(id, select)
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const statusRadios = document.querySelectorAll('.status-radio');
+            statusRadios.forEach(radio => {
+                radio.addEventListener('click', (event) => {
+                    const itemId = event.target.getAttribute('data-id');
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')
+                        .getAttribute('content');
 
-                $.ajax({
-                    url: `/select/${itemId}`,
-                    method: 'POST',
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        status: selected
-                    },
-                    success: function(resp) {
-                        console.log('respon', resp);
-                        alert('berhasil berak sekebon')
-                    },
-                    error: function(xhr) {
-                        console.log('error', xhr.statusText);
-                        alert('berhasil cebok segayung')
-                    }
-                })
-            })
-        })
+                    fetch(`gelombang/update-status/${itemId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken
+                            }
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil',
+                                    text: 'Gelombang sudah aktif bosquee',
+                                });
+                                statusRadios.forEach(r => {
+                                    if (r.getAttribute('data-id') != itemId) {
+                                        r.checked = false;
+                                    }
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Gagal',
+                                    text: 'Status gelombang gagal aktif',
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal',
+                                text: 'Status gelombang gagal aktif',
+                            });
+                        });
+                });
+            });
+        });
     </script>
 @endsection

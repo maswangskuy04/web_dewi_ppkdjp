@@ -6,9 +6,10 @@ use App\Models\PesertaPelatihan;
 use App\Models\Jurusan;
 use App\Models\Gelombang;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class PesertaPelatihanController extends Controller
+ class PesertaPelatihanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -67,19 +68,17 @@ class PesertaPelatihanController extends Controller
      */
     public function destroy(string $id)
     {
-        $pelatihan = PesertaPelatihan::findOrFail($id);
-        $pelatihan->delete();
+        $peserta = PesertaPelatihan::findOrFail($id);
+        $peserta->delete();
         return redirect()->route('peserta-pelatihan.index')->with('message', 'Data berhasil dihapus sementara!');
     }
 
-    public function updateStatus(Request $request) {
-        $peserta = PesertaPelatihan::find($request->id);
-        if($peserta) {
-            $peserta->status = $request->status;
-            $peserta->save();
-            return response()->json(['status' => $peserta->status ? 'aktif' : 'tidak aktif']);
-        } else {
-            return response()->json(['error' => 'Peserta not found'], 404);
-        }
+    public function updateStatus(Request $request, $id)
+    {
+        $peserta = PesertaPelatihan::findOrFail($id);
+        $peserta->status = $request->input('status');
+        $peserta->save();
+
+        return response()->json(['message' => 'Status peserta berhasil diubah']);
     }
 }

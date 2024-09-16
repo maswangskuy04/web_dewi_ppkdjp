@@ -10,12 +10,10 @@ class Gelombang extends Model
 {
     use HasFactory;
 
-    protected $table = "gelombangs";
-
     use SoftDeletes;
     protected $fillable = [
         'nama_gelombang',
-        'aktif',
+        'status',
         'deleted_at'
     ];
 }

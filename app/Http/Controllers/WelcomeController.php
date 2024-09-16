@@ -32,23 +32,21 @@ class WelcomeController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'id_jurusan' => 'required',
-        //     'id_gelombang' => 'required',
-        //     'nama_lengkap' => 'required|string',
-        //     'nik' => 'required|string',
-        //     'kartu_keluarga' => 'required|string',
-        //     'jenis_kelamin' => 'required|string',
-        //     'tempat_lahir' => 'required|string',
-        //     'tanggal_lahir' => 'required|string',
-        //     'pendidikan_terakhir' => 'required|string',
-        //     'nama_sekolah' => 'required|string',
-        //     'kejuruan' => 'required|string',
-        //     'nomor_hp' => 'required|string',
-        //     'email' => 'required|email',
-        //     'aktivitas_saat_ini' => 'required|string',
-        //     'status' => 'required|string',
-        // ]);
+        $request->validate([
+            'id_jurusan' => 'required|exists:jurusans,id',
+            'id_gelombang' => 'required|exists:gelombangs,id',
+            'nama_lengkap' => 'required|string|max:255',
+            'nik' => 'required|string|max:16',
+            'kartu_keluarga' => 'required|string|max:16',
+            'jenis_kelamin' => 'required|in:Laki-Laki,Perempuan',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required',
+            'pendidikan_terakhir' => 'required|string|max:255',
+            'nama_sekolah' => 'required|string|max:255',
+            'nomor_hp' => 'required|string|max:13',
+            'email' => 'required|email|unique:peserta_pelatihans,email',
+            'aktivitas_saat_ini' => 'required|string|max:255',
+        ]);
 
         PesertaPelatihan::create([
             'id_jurusan' => $request->id_jurusan,
@@ -61,13 +59,12 @@ class WelcomeController extends Controller
             'tanggal_lahir' => $request->tanggal_lahir,
             'pendidikan_terakhir' => $request->pendidikan_terakhir,
             'nama_sekolah' => $request->nama_sekolah,
-            'kejuruan' => $request->kejuruan,
             'nomor_hp' => $request->nomor_hp,
             'email' => $request->email,
-            'aktivitas_saat_ini' => $request->aktivitas_saat_ini,
+            'aktivitas_saat_ini' => $request->aktivitas_saat_ini
         ]);
 
-        return redirect()->back()->with('message', 'Data Peserta Berhasil Ditambahkan');
+        return redirect()->back()->with('message', 'Berhasil mendaftar');
     }
 
     /**
@@ -102,5 +99,5 @@ class WelcomeController extends Controller
         //
     }
 
-    
+
 }

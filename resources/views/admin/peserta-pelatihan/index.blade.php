@@ -11,25 +11,16 @@
     <div class="card">
         <div class="card-body">
             <div class="table table-responsive">
-                <table class="table table-bordered text-center">
+                <table class="table table-bordered table-striped cust">
                     <thead>
                         <tr>
-                            <th class="col-1">No</th>
-                            <th>Id Jurusan</th>
-                            <th>Id Gelombang</th>
+                            <th>No</th>
+                            <th>Jurusan</th>
+                            <th>Gelombang</th>
                             <th>Nama Lengkap</th>
-                            <th>NIK</th>
-                            <th>Kartu Keluarga</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Pendidikan Terakhir</th>
-                            <th>Nama Sekolah</th>
-                            <th>Kejuruan</th>
-                            <th>Nomor Hp</th>
                             <th>Email</th>
-                            <th>Aktivitas Saat Ini</th>
                             <th>Status</th>
+                            <th>Detail Peserta</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -43,23 +34,22 @@
                                 <td>{{ $p->jurusans->nama_jurusan }}</td>
                                 <td>{{ $p->gelombangs->nama_gelombang }}</td>
                                 <td>{{ $p->nama_lengkap }}</td>
-                                <td>{{ $p->nik }}</td>
-                                <td>{{ $p->kartu_keluarga }}</td>
-                                <td>{{ $p->jenis_kelamin }}</td>
-                                <td>{{ $p->tempat_lahir }}</td>
-                                <td>{{ $p->tanggal_lahir }}</td>
-                                <td>{{ $p->pendidikan_terakhir }}</td>
-                                <td>{{ $p->nama_sekolah }}</td>
-                                <td>{{ $p->kejuruan }}</td>
-                                <td>{{ $p->nomor_hp }}</td>
                                 <td>{{ $p->email }}</td>
-                                <td>{{ $p->aktivitas_saat_ini }}</td>
                                 <td>
-                                    <div class="form-check d-flex justify-content-center">
-                                        <input type="radio" name="" id="" value="1" {{ $p->status == 1 ? 'checked' : '' }} class="form-check-input">
-                                    </div>
+                                    <select name="status" class="form-select"  id="status-{{ $p->id }}" data-id="{{ $p->id }}">
+                                        <option value="">--  Pilih Status --</option>
+                                        <option value="1" {{ $p->status == 1 ? 'selected' : '' }}>TIDAK LULUS</option>
+                                        <option value="2" {{ $p->status == 2 ? 'selected' : '' }}>CADANGAN</option>
+                                        <option value="3" {{ $p->status == 3 ? 'selected' : '' }}>LULUS</option>
+                                    </select>
                                 </td>
-                                <td class="justify-content-center"><a href="{{ route('peserta-pelatihan.edit', $p->id) }}"
+                                <td>
+                                    <span class="d-flex justify-content-center">
+                                        <a href="" class="btn btn-warning btn-sm">Detail</a>
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="{{ route('peserta-pelatihan.edit', $p->id) }}"
                                         class="btn btn-success btn-sm">Edit</a>
                                     <form class="d-inline" action="{{ route('peserta-pelatihan.destroy', $p->id) }}"
                                         method="post">
@@ -81,7 +71,36 @@
     </div>
 
 @endsection
-
+@section('script')
 <script>
-    
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const itemStatus = document.querySelectorAll('.form-select');
+        itemStatus.forEach(status => {
+            status.addEventListener('change', (event) => {
+                const itemId = event.target.getAttribute('data-id');
+                const statusValue = event.target.value;
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch(`peserta-pelatihan/update-status/${itemId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type':  'application/json',
+                        'X-CSRF-TOKEN':  csrfToken,
+                    },
+                    body:  JSON.stringify({ status: statusValue })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Wokeeh',
+                            text: 'Status sudah diperbarui'
+                        })
+                    }
+                })
+            })
+        })
+    })
 </script>
+@endsection

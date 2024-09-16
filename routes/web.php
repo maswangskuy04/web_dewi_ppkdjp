@@ -27,11 +27,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('/level', LevelController::class);
     Route::resource('/jurusan', JurusanController::class);
     Route::resource('/peserta-pelatihan', PesertaPelatihanController::class);
+    Route::post('/peserta-pelatihan/update-status/{id}', [PesertaPelatihanController::class, 'updateStatus']);
     Route::resource('/gelombang', GelombangController::class);
-
-    // Route::get('/gelombang/trash', [GelombangController::class, 'trash'])->name('trash');
-    // Route::get('/gelombang/recovery/{$id}', [GelombangController::class, 'recovery'])->name('admin.gelombang.recovery');
-    // Route::get('/gelombang/recovery/{$id}', [GelombangController::class, 'recovery'])->name('admin.gelombang.recovery');
-    // Route::get('/gelombang/recovery/{$id}', [GelombangController::class, 'recovery'])->name('admin.gelombang.recovery');
-    Route::post('select/{id}', [GelombangController::class, 'status']);
+    Route::post('/gelombang/update-status/{id}', [GelombangController::class, 'updateStatus']);
 });
