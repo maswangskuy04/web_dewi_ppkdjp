@@ -89,7 +89,27 @@
                 })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    if(statusValue == 1) {
+                        Swal.fire({
+                            title: 'TIDAK LULUS!',
+                            text: 'Mantap Tidak Lulus',
+                            icon: 'error'
+                        })
+                    } if(statusValue == 2) {
+                        Swal.fire({
+                            title: 'CADANGAN!',
+                            text: 'Mantap Cadangan',
+                            icon: 'warning'
+                        })
+                    } if(statusValue == 3) {
+                        Swal.fire({
+                            title: 'LULUS!',
+                            text: 'Mantap Lulus',
+                            icon: 'success'
+                        })
+                    }
+                    console.log(statusValue);
+                    
                 })
             })
         })

@@ -3,8 +3,8 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
-                <img src="{{ asset('template/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand"
-                    class="navbar-brand" height="20" />
+                <img src="{{ asset('img/logo-ppkdjp.png') }}" class="navbar-brand bg-light" style="border-radius: 50%" height="55" />
+                <span class="navbar-brand mx-3 text-light d-flex fs-5">Admin PPKD</span>
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -65,6 +65,12 @@
                     <a href="{{ route('gelombang.index') }}">
                         <i class="fa-solid fa-wave-square"></i>
                         <p>Gelombang</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::routeIs('user-jurusan.index') ? 'active' : '' }}">
+                    <a href="{{ route('user-jurusan.index') }}">
+                        <i class="fa-solid fa-user"></i>
+                        <p>User Jurusan</p>
                     </a>
                 </li>
                 @elseif (Auth::user()->id_level == 2)

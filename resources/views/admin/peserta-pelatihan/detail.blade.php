@@ -5,62 +5,72 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <div class="mb-3">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <label for="" class="form-label">Jurusan</label>
-                    </div>
-                    <div class="col-sm-2">
-                        <p>{{ $peserta->jurusans->nama_jurusan }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <label for="" class="form-label">Angkatan</label>
-                    </div>
-                    <div class="col-sm-2">
-                        <p>{{ $peserta->gelombangs->nama_gelombang }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <label for="" class="form-label">Status</label>
-                    </div>
-                    <div class="col-sm-2">
+            <table class="table table-striped">
+                <tr>
+                    <th>Status</th>
+                    <td>
                         @if ($peserta->status == 1)
-                            <div class="badge badge-danger p-3">TIDAK LULUS</div>
-                        @elseif ($peserta->status == 2)
-                            <div class="badge badge-warning p-3">CADANGAN</div>
+                            <div class="badge badge-danger">TIDAK LULUS</div>
+                        @elseif($peserta->status == 2)
+                            <div class="badge badge-warning">CADANGAN</div>
                         @else
-                            <div class="badge badge-success p-3">LULUS</div>
+                            <div class="badge badge-success">LULUS</div>
                         @endif
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <label for="" class="form-label">Nama Peserta</label>
-                    </div>
-                    <div class="col-sm-2">
-                        <p>{{ $peserta->nama_lengkap }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <div class="row">
-                    <div class="col-sm-10">
-                        <label for="" class="form-label">NIK</label>
-                    </div>
-                    <div class="col-sm-2">
-                        <p>{{ $peserta->nik }}</p>
-                    </div>
-                </div>
-            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Jurusan</th>
+                    <td>{{ $peserta->jurusans->nama_jurusan }}</td>
+                </tr>
+                <tr>
+                    <th>Angkatan</th>
+                    <td>{{ $peserta->gelombangs->nama_gelombang }}</td>
+                </tr>
+                <tr>
+                    <th>Nama Lengkap</th>
+                    <td>{{ $peserta->nama_lengkap }}</td>
+                </tr>
+                <tr>
+                    <th>NIK</th>
+                    <td>{{ $peserta->nik }}</td>
+                </tr>
+                <tr>
+                    <th>Kartu Keluarga</th>
+                    <td>{{ $peserta->kartu_keluarga }}</td>
+                </tr>
+                <tr>
+                    <th>Jenis Kelamin</th>
+                    <td>{{ $peserta->jenis_kelamin }}</td>
+                </tr>
+                <tr>
+                    <th>Tempat Lahir</th>
+                    <td>{{ $peserta->tempat_lahir }}</td>
+                </tr>
+                <tr>
+                    <th>Tanggal Lahir</th>
+                    <td>{{ date('d-m-Y', strtotime($peserta->tanggal_lahir)) }}</td>
+                </tr>
+                <tr>
+                    <th>Pendidikan Terakhir</th>
+                    <td>{{ $peserta->pendidikan_terakhir }}</td>
+                </tr>
+                <tr>
+                    <th>Nama Sekolah</th>
+                    <td>{{ $peserta->nama_sekolah }}</td>
+                </tr>
+                <tr>
+                    <th>Nomor HP</th>
+                    <td>{{ $peserta->nomor_hp }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ $peserta->email }}</td>
+                </tr>
+                <tr>
+                    <th>Aktivitas Saat Ini</th>
+                    <td>{{ $peserta->aktivitas_saat_ini }}</td>
+                </tr>
+            </table>
         </div>
     </div>
 @endsection

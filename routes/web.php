@@ -8,6 +8,7 @@ use App\Http\Controllers\LevelsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PesertaPelatihanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserJurusanController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,5 @@ Route::prefix('admin')->group(function () {
     Route::post('/peserta-pelatihan/update-status/{id}', [PesertaPelatihanController::class, 'updateStatus']);
     Route::resource('/gelombang', GelombangController::class);
     Route::post('/gelombang/update-status/{id}', [GelombangController::class, 'updateStatus']);
+    Route::resource('/user-jurusan', UserJurusanController::class);
 });
