@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gelombangs', function (Blueprint $table) {
             $table->id();
             $table->string('nama_gelombang');
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('aktif')->default(0);
             $table->timestamps();
         });
     }
