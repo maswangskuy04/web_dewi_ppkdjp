@@ -102,9 +102,9 @@ class GelombangController extends Controller
 
     public function updateStatus($id): JsonResponse
     {
-        Gelombang::where('id', '!=', $id)->update(['status' => 0]);
+        Gelombang::where('id', '!=', $id)->update(['aktif' => 0]);
         $gelombang = Gelombang::findOrFail($id);
-        $gelombang->status = 1;
+        $gelombang->aktif = 1;
         $gelombang->save();
 
         return response()->json(['success' => 'Status gelombang sudah aktif']);

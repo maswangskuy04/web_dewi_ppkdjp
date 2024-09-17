@@ -31,7 +31,7 @@
                                 <td>{{ $gelo->nama_gelombang }}</td>
                                 <td>
                                     <input type="radio" name="status" id="" class="status-radio"
-                                        data-id="{{ $gelo->id }}" {{ $gelo->status == 1 ? 'checked' : '' }}>
+                                        data-id="{{ $gelo->id }}" {{ $gelo->aktif == 1 ? 'checked' : '' }}>
                                 </td>
                                 <td class="justify-content-center">
                                     <a href="{{ route('gelombang.edit', $gelo->id) }}"
