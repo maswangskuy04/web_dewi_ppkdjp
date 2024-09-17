@@ -81,6 +81,15 @@ class UserJurusanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $userjurusan = UserJurusan::findOrFail($id);
+        $userjurusan->delete();
+        return redirect()->route('user-jurusan.index')->with('message', 'Data User Jurusan berhasil dihapus sementara!');
+    }
+
+    public function restore(string $id)
+    {
+        $userjurusan = UserJurusan::onlyTrashed()->findOrFail($id);
+        $userjurusan->restore();
+        return redirect()->route('user-jurusan.index')->with('message', 'Data User Jurusan Kembali.');
     }
 }

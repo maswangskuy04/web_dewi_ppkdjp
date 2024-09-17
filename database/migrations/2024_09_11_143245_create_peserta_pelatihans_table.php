@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('peserta_pelatihans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_jurusan');
-            $table->unsignedBigInteger('id_gelombang');
             $table->string('nama_lengkap');
             $table->char('nik', 16);
             $table->char('kartu_keluarga', 16);
@@ -28,8 +26,6 @@ return new class extends Migration
             $table->string('aktivitas_saat_ini');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
-            $table->foreign('id_jurusan')->references('id')->on('jurusans');
-            $table->foreign('id_gelombang')->references('id')->on('gelombangs');
         });
     }
 

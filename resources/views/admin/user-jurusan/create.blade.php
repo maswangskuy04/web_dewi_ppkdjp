@@ -11,7 +11,7 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Nama PIC</label>
                     <select name="id_user" class="form-select">
-                        <option value="">-- Pilih Nama PIC</option>
+                        <option value="">-- Pilih Nama PIC --</option>
                         @foreach ($user->where('id_level', 3) as $u)
                             <option value="{{ $u->id }}">{{ $u->nama_lengkap }}</option>
                         @endforeach
@@ -42,5 +42,5 @@
             </form>
         </div>
     </div>
-</div>
+</div> 
 @endsection

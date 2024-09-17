@@ -36,9 +36,13 @@
 
 <body>
     <div class="container">
+        <div class="col-mt-8">
+            <img src="https://github.com/maswangskuy04/penerimaan_peserta/blob/main/public/img/logoppkd.png?raw=true"
+                alt="">
+        </div>
         <h2 class="form-title">Pendaftaran Calon Peserta</h2>
         @if (session('message'))
-        <div class="alert alert-success">{{ session('message') }}</div>
+            <div class="alert alert-success">{{ session('message') }}</div>
         @endif
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -98,16 +102,13 @@
                     @foreach ($jurusans as $jurusan)
                         <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
                     @endforeach
-                </select>
+                </select>  
             </div>
             <div class="mb-3">
                 <label for="id_gelombang" class="form-label">Gelombang</label>
-                <select name="id_gelombang" id="" class="form-select">
-                    <option value="">Pilih Gelombang</option>
-                    @foreach ($gelombangs as $gelombang)
-                        <option value="{{ $gelombang->id }}">{{ $gelombang->nama_gelombang }}</option>
-                    @endforeach
-                </select>
+                <input class="form-control" type="text" disabled placeholder="Your name"
+                    value="{{ $gelombang->nama_gelombang }}" />
+                <input type="hidden" placeholder="Your name" value="{{ $gelombang->id }}" name="id_gelombang" />
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>

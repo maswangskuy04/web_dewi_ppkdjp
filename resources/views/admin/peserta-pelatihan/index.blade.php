@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-body">
             <div class="table table-responsive">
-                <table class="table table-bordered table-striped cust">
+                <table class="table table-bordered table-striped cust" id="datatables">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -36,8 +36,9 @@
                                 <td>{{ $p->nama_lengkap }}</td>
                                 <td>{{ $p->email }}</td>
                                 <td>
-                                    <select name="status" class="form-select"  id="status-{{ $p->id }}" data-id="{{ $p->id }}">
-                                        <option value="">--  Pilih Status --</option>
+                                    <select name="status" class="form-select" id="status-{{ $p->id }}"
+                                        data-id="{{ $p->id }}">
+                                        <option value="">-- Pilih Status --</option>
                                         <option value="1" {{ $p->status == 1 ? 'selected' : '' }}>TIDAK LULUS</option>
                                         <option value="2" {{ $p->status == 2 ? 'selected' : '' }}>CADANGAN</option>
                                         <option value="3" {{ $p->status == 3 ? 'selected' : '' }}>LULUS</option>
@@ -45,7 +46,8 @@
                                 </td>
                                 <td>
                                     <span class="d-flex justify-content-center">
-                                        <a href="{{ route('peserta-pelatihan.show', $p->id) }}" class="btn btn-warning btn-sm">Detail</a>
+                                        <a href="{{ route('peserta-pelatihan.show', $p->id) }}"
+                                            class="btn btn-warning btn-sm">Detail</a>
                                     </span>
                                 </td>
                                 <td>
@@ -70,49 +72,57 @@
 
 @endsection
 @section('script')
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const itemStatus = document.querySelectorAll('.form-select');
-        itemStatus.forEach(status => {
-            status.addEventListener('change', (event) => {
-                const itemId = event.target.getAttribute('data-id');
-                const statusValue = event.target.value;
-                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    <script>
+        $(document).on(function() {
+            $('#datatables').DataTable()
+        })
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const itemStatus = document.querySelectorAll('.form-select');
+            itemStatus.forEach(status => {
+                status.addEventListener('change', (event) => {
+                    const itemId = event.target.getAttribute('data-id');
+                    const statusValue = event.target.value;
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]')
+                        .getAttribute('content');
 
-                fetch(`peserta-pelatihan/update-status/${itemId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type':  'application/json',
-                        'X-CSRF-TOKEN':  csrfToken,
-                    },
-                    body:  JSON.stringify({ status: statusValue })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if(statusValue == 1) {
-                        Swal.fire({
-                            title: 'TIDAK LULUS!',
-                            text: 'Mantap Tidak Lulus',
-                            icon: 'error'
+                    fetch(`peserta-pelatihan/update-status/${itemId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': csrfToken,
+                            },
+                            body: JSON.stringify({
+                                status: statusValue
+                            })
                         })
-                    } if(statusValue == 2) {
-                        Swal.fire({
-                            title: 'CADANGAN!',
-                            text: 'Mantap Cadangan',
-                            icon: 'warning'
+                        .then(res => res.json())
+                        .then(data => {
+                            if (statusValue == 1) {
+                                Swal.fire({
+                                    title: 'TIDAK LULUS!',
+                                    text: 'Lah Kocakkk',
+                                    icon: 'error'
+                                })
+                            }
+                            if (statusValue == 2) {
+                                Swal.fire({
+                                    title: 'CADANGAN!',
+                                    text: 'Last Choice',
+                                    icon: 'warning'
+                                })
+                            }
+                            if (statusValue == 3) {
+                                Swal.fire({
+                                    title: 'LULUS!',
+                                    text: 'Anjay Lulus',
+                                    icon: 'success'
+                                })
+                            }
+                            console.log(statusValue);
+
                         })
-                    } if(statusValue == 3) {
-                        Swal.fire({
-                            title: 'LULUS!',
-                            text: 'Mantap Lulus',
-                            icon: 'success'
-                        })
-                    }
-                    console.log(statusValue);
-                    
                 })
             })
         })
-    })
-</script>
+    </script>
 @endsection

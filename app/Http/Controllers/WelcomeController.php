@@ -14,9 +14,9 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $jurusans = Jurusan::get();
-        $gelombangs = Gelombang::get();
-        return view('welcome', compact('jurusans', 'gelombangs'));
+        $gelombang = Gelombang::where('aktif', 1)->first();
+        $jurusans = Jurusan::all();
+        return view('welcome', compact('gelombang', 'jurusans'));
     }
 
     /**

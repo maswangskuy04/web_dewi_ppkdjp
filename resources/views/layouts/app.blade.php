@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
+    <title>Pendaftaran PPKD</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <link rel="icon" href="{{ asset('template/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
@@ -44,6 +44,11 @@
 <body>
     <div class="wrapper">
         <!-- Sidebar -->
+        @if (Auth::check())
+        @php
+            header('location' . route('login'))
+        @endphp
+        @endif
         @include('inc.sidebar')
         <!-- End Sidebar -->
 

@@ -10,7 +10,7 @@
                 <div class="mb-3">
                     <label class="py-3" class="form-label">Level</label>
                     <select name="id_level" id="" class="form-select" required>
-                        <option value=""></option>
+                        <option value="">-- Pilih Level --</option>
                         @foreach ($level as $l)
                         <option value="{{ $l->id }}">{{ $l->nama_level }}</option>
                         @endforeach

@@ -32,4 +32,9 @@ Route::prefix('admin')->group(function () {
     Route::resource('/gelombang', GelombangController::class);
     Route::post('/gelombang/update-status/{id}', [GelombangController::class, 'updateStatus']);
     Route::resource('/user-jurusan', UserJurusanController::class);
-});
+    // Route::get('/user-jurusan/restore', 'UserJurusanController@restore')->name(name: 'user-jurusan.restore');
+    Route::get('/user-jurusan/backup', [UserJurusanController::class, 'backup'])->name('user-jurusan.backup')->middleware(['auth', '']);
+    Route::get('/user-jurusan/recovery/{id}', [UserJurusanController::class, 'recovery'])->name('user-jurusan.recovery')->middleware(['auth', '']);
+    // Route::get('/recycle/', [UserJurusanController::class, 'recycle'])->name('user-jurusan.recycle');
+    Route::get('/user-jurusan/restore', [UserJurusanController::class, 'restore'])->name('user-jurusan.restore');
+})->middleware('web');
