@@ -35,16 +35,16 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-mt-8">
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="col-mt-8">[[]]
             <img src="https://github.com/maswangskuy04/penerimaan_peserta/blob/main/public/img/logoppkd.png?raw=true"
-                alt="">
+                alt="" width="100">
         </div>
-        <h2 class="form-title">Pendaftaran Calon Peserta</h2>
-        @if (session('message'))
-            <div class="alert alert-success">{{ session('message') }}</div>
-        @endif
+        <h4 class="mx-3">Pendaftaran Calon Peserta Pelatihan Kerja Daerah Jakarta Pusat</h4>
     </div>
+    @if (session('message'))
+        <div class="alert alert-success">{{ session('message') }}</div>
+    @endif
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
@@ -102,13 +102,13 @@
                     @foreach ($jurusans as $jurusan)
                         <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
                     @endforeach
-                </select>  
+                </select>
             </div>
             <div class="mb-3">
                 <label for="id_gelombang" class="form-label">Gelombang</label>
                 <input class="form-control" type="text" disabled placeholder="Your name"
                     value="{{ $gelombang->nama_gelombang }}" />
-                <input type="hidden" placeholder="Your name" value="{{ $gelombang->id }}" name="id_gelombang" />
+                <input type="hidden" value="{{ $gelombang->id }}" name="id_gelombang" />
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
@@ -140,7 +140,14 @@
             </div>
             <div class="mb-3">
                 <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir</label>
-                <input type="text" class="form-control" id="pendidikan_terakhir" name="pendidikan_terakhir" required>
+                <select name="pendidikan_terakhir" class="form-select" required>
+                    <option value="">-- Pilih Pendidikan Terakhir --</option>
+                    <option value="Sd">SD</option>
+                    <option value="Smp">SMP</option>
+                    <option value="Smak">SMA/K</option>
+                    <option value="Diploma">DIPLOMA</option>
+                    <option value="Sarjana">SARJANA</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="nama_sekolah" class="form-label">Nama Sekolah</label>

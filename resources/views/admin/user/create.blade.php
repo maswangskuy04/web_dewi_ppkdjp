@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Tambah User')
+
+@section('title', 'Form Tambah User')
 
 @section('content')
 <div class="col-md-4">

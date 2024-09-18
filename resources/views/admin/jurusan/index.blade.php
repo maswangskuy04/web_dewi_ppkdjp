@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Jurusan')
+@section('title', 'Tabel Jurusan')
 
 @section('content')
     @if (session('message'))

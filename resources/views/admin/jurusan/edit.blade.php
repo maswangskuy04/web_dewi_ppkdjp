@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Edit Jurusan')
+@section('title', 'Form Edit Jurusan')
 
 @section('content')
     <div class="col-md-4">

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'User Jurusan Page')
+@section('title', 'Tabel User Jurusan')
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            <a href="{{ route('user-jurusan.create') }}" class="btn btn-outline-primary mb-2 btn-sm mb-3">Add User Jurusan</a>
+            <a href="{{ route('user-jurusan.create') }}" class="btn btn-outline-primary mb-2 btn-sm mb-3">Tambah User Jurusan</a>
             <div class="table table-responsive">
                 <table class="table table-bordered text-center">
                     <thead>

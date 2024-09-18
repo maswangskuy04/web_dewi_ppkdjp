@@ -1,76 +1,35 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Peserta Page')
+@section('title', 'Profil Detail Peserta')
 
 @section('content')
-    <div class="card">
+
+    <div class="card col-4">
         <div class="card-body">
-            <table class="table table-striped">
-                <tr>
-                    <th>Status</th>
-                    <td>
-                        @if ($peserta->status == 1)
-                            <div class="badge badge-danger">TIDAK LULUS</div>
-                        @elseif($peserta->status == 2)
-                            <div class="badge badge-warning">CADANGAN</div>
-                        @else
-                            <div class="badge badge-success">LULUS</div>
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <th>Jurusan</th>
-                    <td>{{ $peserta->jurusans->nama_jurusan }}</td>
-                </tr>
-                <tr>
-                    <th>Angkatan</th>
-                    <td>{{ $peserta->gelombangs->nama_gelombang }}</td>
-                </tr>
-                <tr>
-                    <th>Nama Lengkap</th>
-                    <td>{{ $peserta->nama_lengkap }}</td>
-                </tr>
-                <tr>
-                    <th>NIK</th>
-                    <td>{{ $peserta->nik }}</td>
-                </tr>
-                <tr>
-                    <th>Kartu Keluarga</th>
-                    <td>{{ $peserta->kartu_keluarga }}</td>
-                </tr>
-                <tr>
-                    <th>Jenis Kelamin</th>
-                    <td>{{ $peserta->jenis_kelamin }}</td>
-                </tr>
-                <tr>
-                    <th>Tempat Lahir</th>
-                    <td>{{ $peserta->tempat_lahir }}</td>
-                </tr>
-                <tr>
-                    <th>Tanggal Lahir</th>
-                    <td>{{ date('d-m-Y', strtotime($peserta->tanggal_lahir)) }}</td>
-                </tr>
-                <tr>
-                    <th>Pendidikan Terakhir</th>
-                    <td>{{ $peserta->pendidikan_terakhir }}</td>
-                </tr>
-                <tr>
-                    <th>Nama Sekolah</th>
-                    <td>{{ $peserta->nama_sekolah }}</td>
-                </tr>
-                <tr>
-                    <th>Nomor HP</th>
-                    <td>{{ $peserta->nomor_hp }}</td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td>{{ $peserta->email }}</td>
-                </tr>
-                <tr>
-                    <th>Aktivitas Saat Ini</th>
-                    <td>{{ $peserta->aktivitas_saat_ini }}</td>
-                </tr>
-            </table>
+            <div class="row">
+                <div class="col-6">
+                    <h5>{{ $peserta->nama_lengkap }}</h5>
+                </div>
+                <div class="col-6">
+                    @if ($peserta->status == 1)
+                        <div class="badge badge-danger float-end p-2">TIDAK LULUS</div>
+                    @elseif($peserta->status == 2)
+                        <div class="badge badge-warning float-end p-2">CADANGAN</div>
+                    @elseif($peserta->status == 3)
+                        <div class="badge badge-success float-end p-2">LULUS</div>
+                    @else
+                        <div class="badge badge-secondary float-end p-2">BELUM DIPROSES</div>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <span class="text-muted">{{ $peserta->nomor_hp }}</span>
+                </div>
+                <div class="col-6">
+                    <span class="text-muted">{{ $peserta->email }}</span>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

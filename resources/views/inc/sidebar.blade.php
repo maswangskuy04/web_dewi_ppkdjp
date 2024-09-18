@@ -38,63 +38,63 @@
                     <h4 class="text-section">Master Data</h4>
                 </li>
                 @if (Auth::user()->id_level == 1)
-                    <li class="nav-item {{ Request::routeIs('user.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('user.index', 'user.create', 'user.edit') ? 'active' : '' }}">
                         <a href="{{ route('user.index') }}">
                             <i class="fa-solid fa-person"></i>
                             <p>User</p>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::routeIs('level.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('level.index', 'level.create', 'level.edit') ? 'active' : '' }}">
                         <a href="{{ route('level.index') }}">
                             <i class="fas fa-layer-group"></i>
                             <p>Level</p>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::routeIs('jurusan.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('jurusan.index', 'jurusan.create', 'jurusan.edit') ? 'active' : '' }}">
                         <a href="{{ route('jurusan.index') }}">
                             <i class="fa-solid fa-book"></i>
                             <p>Jurusan</p>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index', 'peserta-pelatihan.create', 'peserta-pelatihan.edit') ? 'active' : '' }}">
                         <a href="{{ route('peserta-pelatihan.index') }}">
                             <i class="fa-solid fa-people-group"></i>
                             <p>Peserta Pelatihan</p>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::routeIs('gelombang.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('gelombang.index', 'gelombang.create', 'gelombang.edit') ? 'active' : '' }}">
                         <a href="{{ route('gelombang.index') }}">
                             <i class="fa-solid fa-wave-square"></i>
                             <p>Gelombang</p>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::routeIs('user-jurusan.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('user-jurusan.index', 'user-jurusan.create') ? 'active' : '' }}">
                         <a href="{{ route('user-jurusan.index') }}">
                             <i class="fa-solid fa-user"></i>
                             <p>User Jurusan</p>
                         </a>
                     </li>
                 @elseif (Auth::user()->id_level == 2)
-                    <li class="nav-item {{ Request::routeIs('jurusan.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('jurusan.index', 'jurusan.create', 'jurusan.edit') ? 'active' : '' }}">
                         <a href="{{ route('jurusan.index') }}">
                             <i class="fa-solid fa-book"></i>
                             <p>Jurusan</p>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index', 'peserta-pelatihan.create', 'peserta-pelatihan.edit') ? 'active' : '' }}">
                         <a href="{{ route('peserta-pelatihan.index') }}">
                             <i class="fa-solid fa-people-group"></i>
                             <p>Peserta Pelatihan</p>
                         </a>
                     </li>
-                    <li class="nav-item {{ Request::routeIs('gelombang.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('gelombang.index', 'gelombang.create', 'gelombang.edit') ? 'active' : '' }}">
                         <a href="{{ route('gelombang.index') }}">
                             <i class="fa-solid fa-wave-square"></i>
                             <p>Gelombang</p>
                         </a>
                     </li>
                 @else
-                    <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::routeIs('peserta-pelatihan.index', 'peserta-pelatihan.create', 'peserta-pelatihan.edit') ? 'active' : '' }}">
                         <a href="{{ route('peserta-pelatihan.index') }}">
                             <i class="fa-solid fa-people-group"></i>
                             <p>Peserta Pelatihan</p>

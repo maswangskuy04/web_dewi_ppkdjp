@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Peserta Pelatihan')
+@section('title', 'Tabel Peserta Pelatihan')
 @section('content')
 
     @if (session('message'))

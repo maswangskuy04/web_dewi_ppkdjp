@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Gelombang')
+@section('title', 'Tabel Gelombang')
 @section('content')
 
     @if (session('message'))
@@ -77,7 +77,7 @@
                             if (data.success) {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Berhasil',
+                                    title: 'Mantappp!',
                                     text: 'Gelombang sudah aktif bosquee',
                                 });
                                 statusRadios.forEach(r => {
