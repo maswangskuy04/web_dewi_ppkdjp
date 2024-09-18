@@ -6,6 +6,7 @@ use App\Models\PesertaPelatihan;
 use App\Models\Jurusan;
 use App\Models\Gelombang;
 use App\Models\User;
+use App\Models\UserJurusan;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ use Illuminate\Http\Request;
     public function index()
     {
         $peserta = PesertaPelatihan::all();
-        return view('admin.peserta-pelatihan.index', compact('peserta'));
+        $user = User::all();
+        return view('admin.peserta-pelatihan.index', compact('peserta', 'user'));
     }
 
     /**

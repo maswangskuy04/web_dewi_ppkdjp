@@ -39,7 +39,8 @@
                                     <select name="status" class="form-select" id="status-{{ $p->id }}"
                                         data-id="{{ $p->id }}">
                                         <option value="">-- Pilih Status --</option>
-                                        <option value="1" {{ $p->status == 1 ? 'selected' : '' }}>TIDAK LULUS</option>
+                                        <option value="1" {{ $p->status == 1 ? 'selected' : '' }}>TIDAK LULUS
+                                        </option>
                                         <option value="2" {{ $p->status == 2 ? 'selected' : '' }}>CADANGAN</option>
                                         <option value="3" {{ $p->status == 3 ? 'selected' : '' }}>LULUS</option>
                                     </select>

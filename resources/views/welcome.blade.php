@@ -36,7 +36,7 @@
 
 <body>
     <div class="container d-flex align-items-center justify-content-center">
-        <div class="col-mt-8">[[]]
+        <div class="col-mt-8">
             <img src="https://github.com/maswangskuy04/penerimaan_peserta/blob/main/public/img/logoppkd.png?raw=true"
                 alt="" width="100">
         </div>
